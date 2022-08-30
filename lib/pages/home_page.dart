@@ -80,7 +80,11 @@ class HomePage extends StatelessWidget {
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: const [
-                                    Text('Afiv Dicky Efendy'),
+                                    Text(
+                                      'withadifens',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.w500),
+                                    ),
                                     Text('Blitar'),
                                   ],
                                 )
@@ -121,11 +125,11 @@ class HomePage extends StatelessWidget {
                                     Text(
                                       'withadifens',
                                       style: TextStyle(
-                                          fontWeight: FontWeight.bold),
+                                          fontWeight: FontWeight.w500),
                                     ),
                                     Padding(
-                                      padding: EdgeInsets.only(left: 8),
-                                      child: Text('Lagi healing...'),
+                                      padding: EdgeInsets.only(left: 5),
+                                      child: Text('Ceritanya lagi healing...'),
                                     ),
                                   ],
                                 ),
