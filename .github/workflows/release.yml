@@ -2,10 +2,10 @@ name: Build and Release apk
 on: push
 jobs:
   build:
-  env:
-    my_secret: "${{secrets.GH_TOKEN}}"
-    my_tag: "v1.0.${{github.run_number}}"
     name: Build APK
+    env:
+      my_secret: "${{secrets.GH_TOKEN}}"
+      my_tag: "v1.0.${{github.run_number}}"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
