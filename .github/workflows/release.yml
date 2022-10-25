@@ -1,13 +1,26 @@
-name: Publish Release
+name: Build and Release APK
 on: push
 jobs:
   build:
+    name: Build APK
+    env:
+      my_tag: "v1.0.${{github.run_number}}"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Create a Release
-        uses: elgohr/Github-Release-Action@v4
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      - uses: actions/setup-java@v2
         with:
-          title: MyReleaseMessage
+          distribution: "zulu"
+          java-version: "12"
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.3.5"
+      - run: flutter pub get
+      #- run: flutter test
+      - run: flutter build apk --split-per-abi
+      - name: Push APK to Releases
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "build/app/outputs/flutter-apk/*,build/ios/iphoneos/app.ipa,build/app/outputs/bundle/release/app-release.aab"
+          token: ${{ secrets.GH_TOKEN }}
+          tag: ${{env.my_tag}}
