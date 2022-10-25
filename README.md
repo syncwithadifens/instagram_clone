@@ -11,10 +11,9 @@ Clone instagram UI with flutter
 
 ### Preview
 
-| Home|home|
-| Gambar|
+| Gambar                                                 | gambar                                                 |
 | ------------------------------------------------------ | ------------------------------------------------------ |
-| Home | Home |
+| Home                                                   | Home                                                   |
 | ![](assets/github-demo/Screenshot_20220830_221917.png) | ![](assets/github-demo/Screenshot_20220831_021328.png) |
-| Home | Home |
+| Home                                                   | Home                                                   |
 | ![](assets/github-demo/Screenshot_20220830_221917.png) | ![](assets/github-demo/Screenshot_20220831_021328.png) |
