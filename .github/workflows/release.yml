@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    name: Build APKd
+    name: Build APK
     env:
       my_tag: "v1.0.${{github.run_number}}"
     runs-on: ubuntu-latest
