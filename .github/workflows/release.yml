@@ -3,6 +3,8 @@ name: Test, Build and Release apk
 jobs:
   build:
     name: Build APK
+    env:
+      my_tag: "v1.0.${{github.run_number}}"
     runs-on: ubuntu-latest
     steps:
       - name: Create a Release APK
@@ -10,4 +12,4 @@ jobs:
         with:
           artifacts: "build/app/outputs/apk/debug/*.apk"
           token: ${{ secrets.GH_TOKEN }}
-          tag: v1.0
+          tag: ${{ env.my_tag }}
