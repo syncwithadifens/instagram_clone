@@ -1,10 +1,11 @@
 name: Test, Build and Release apk
-on: push
+on:
+  push:
+    tags:
+      - "*"
 jobs:
   build:
     name: Build APK
-    env:
-      my_tag: "v1.0.${{github.run_number}}"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -19,7 +20,11 @@ jobs:
       #- run: flutter test
       - run: flutter build apk
       - name: Push APK to Releases
-      - uses: ncipollo/release-action@v1
+        uses: svenstaro/upload-release-action@v2
         with:
-          artifacts: "build/app/outputs/flutter-apk/*,build/ios/iphoneos/app.ipa,build/app/outputs/bundle/release/app-release.aab"
-          token: ${{ secrets.GH_TOKEN }}
+          repo_token: ${{ secrets.GH_TOKEN }}
+          file: build/app/outputs/flutter-apk/*,build/ios/iphoneos/app.ipa,build/app/outputs/bundle/release/app-release.aab
+          asset_name: mything
+          tag: ${{ github.ref }}
+          overwrite: true
+          body: "Upload binaries to release"
