@@ -1,8 +1,9 @@
 name: Build and Release APK
 on:
   push:
-    branches:
-      - "main"
+    tags:
+      - "v*"
+
 jobs:
   build:
     name: Build APKd
