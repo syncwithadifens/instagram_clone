@@ -20,8 +20,15 @@ jobs:
       #- run: flutter test
       - run: flutter build apk
       - name: Push APK to Releases
-        uses: ncipollo/release-action@v1
+      - uses: meeDamian/github-release@2.0
         with:
-          artifacts: "build/app/outputs/flutter-apk/*,build/ios/iphoneos/app.ipa,build/app/outputs/bundle/release/app-release.aab"
-          tag: ${{env.my_tag}}
-          token: ${{env.my_secret}}
+          token: ${{ env.my_secret }}
+          tag: ${{ env.my_tag }}
+          name: My Creative Name
+          body: >
+            This release actually changes the fabric of the reality, so be careful 
+            while applying, as error in database migration, can irrecoverably wipe 
+            some laws of physics.
+          gzip: folders
+          files: >
+            build/app/outputs/flutter-apk/
