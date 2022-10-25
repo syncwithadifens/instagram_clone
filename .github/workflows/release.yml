@@ -20,7 +20,7 @@ jobs:
       #- run: flutter test
       - run: flutter build apk
       - name: Push APK to Releases
-      - uses: meeDamian/github-release@2.0
+        uses: meeDamian/github-release@2.0
         with:
           token: ${{ env.my_secret }}
           tag: ${{ env.my_tag }}
