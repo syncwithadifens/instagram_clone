@@ -6,7 +6,7 @@ on:
       - "v*" # Push events to matching v*, i.e. v1.0, v20.15.10
 jobs:
   build:
-    name: Build APK
+    name: Build APKd
     env:
       my_tag: "v1.0.${{github.run_number}}"
     runs-on: ubuntu-latest
