@@ -26,4 +26,3 @@ jobs:
         with:
           artifacts: "build/app/outputs/flutter-apk/*,build/ios/iphoneos/app.ipa,build/app/outputs/bundle/release/app-release.aab"
           token: ${{ secrets.GH_TOKEN }}
-          tag: ${{env.my_tag}}
